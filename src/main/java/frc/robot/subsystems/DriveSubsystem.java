@@ -42,6 +42,10 @@ public class DriveSubsystem extends SubsystemBase {
     m_leftLeader.configFactoryDefault();
     m_rightLeader.configFactoryDefault();
 
+    // Victor SPX Motors are set to follow the Talon SRX
+    m_leftFollower.follow(m_leftLeader);    
+    m_leftFollower.follow(m_leftLeader);
+
     m_leftLeader.setInverted(false);  
     m_rightLeader.setInverted(false); 
 
