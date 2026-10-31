@@ -18,10 +18,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class DriveSubsystem extends SubsystemBase {
 
   //need to update ids
-  private final WPI_TalonSRX m_leftLeader = new WPI_TalonSRX(0);
-  private final WPI_TalonSRX m_rightLeader = new WPI_TalonSRX(0);
-  private final WPI_VictorSPX m_leftFollower = new WPI_VictorSPX(0); 
-  private final WPI_VictorSPX m_rightFollower = new WPI_VictorSPX(0); 
+  private final WPI_TalonSRX m_leftLeader = new WPI_TalonSRX(DriveConstants.kLeftMotor1Port);
+  private final WPI_TalonSRX m_rightLeader = new WPI_TalonSRX(DriveConstants.kRightMotor1Port);
+  private final WPI_VictorSPX m_leftFollower = new WPI_VictorSPX(DriveConstants.kLeftMotor2Port); 
+  private final WPI_VictorSPX m_rightFollower = new WPI_VictorSPX(DriveConstants.kRightMotor2Port); 
    
   private final DifferentialDrive m_drive = new DifferentialDrive(m_leftLeader, m_rightLeader);
 
