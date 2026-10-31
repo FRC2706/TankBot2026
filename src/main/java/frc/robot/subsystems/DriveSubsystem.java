@@ -4,24 +4,25 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix6.configs.CANcoderConfiguration;
-import com.ctre.phoenix6.configs.TalonFXConfiguration;
-import com.ctre.phoenix6.hardware.TalonFX;
-import com.ctre.phoenix6.signals.NeutralModeValue;
-import edu.wpi.first.wpilibj.motorcontrol.MotorController;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX; 
 import edu.wpi.first.util.sendable.SendableBuilder;
 import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
 import frc.robot.Constants.DriveConstants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveSubsystem extends SubsystemBase {
 
-  private final TalonFX m_leftLeader = new TalonFX (2);
-
-  private final TalonFX m_rightLeader = new TalonFX(1);
-  
+  //need to update ids
+  private final WPI_TalonSRX m_leftLeader = new WPI_TalonSRX(0);
+  private final WPI_TalonSRX m_rightLeader = new WPI_TalonSRX(0);
+  private final WPI_VictorSPX m_leftFollower = new WPI_VictorSPX(0); 
+  private final WPI_VictorSPX m_rightFollower = new WPI_VictorSPX(0); 
+   
   private final DifferentialDrive m_drive = new DifferentialDrive(m_leftLeader, m_rightLeader);
 
 /** 
@@ -52,7 +53,6 @@ public class DriveSubsystem extends SubsystemBase {
     m_rightEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
  */
   }
-
   /**
    * 
    *
@@ -70,9 +70,6 @@ public class DriveSubsystem extends SubsystemBase {
     m_rightEncoder.reset();
     */
   }
-  
-
-
    
   public double getAverageEncoderDistance() {
     /** 
